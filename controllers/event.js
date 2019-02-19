@@ -61,4 +61,9 @@ router.post('/:id', (req, res) => {
   })
 })
 
+router.put('/:id', (req, res) => {
+  //need to add update to event 
+  //need to add increments to attendees
+})
+
 module.exports = router
