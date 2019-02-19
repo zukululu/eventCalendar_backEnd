@@ -1,5 +1,11 @@
 const express = require('express')
 const app = express()
+const passport = require('passport')
+require('./config/passport')
+const userController = require('./controllers/users')
+const eventController = require('./controllers/event')
 
-app.use(require('./controllers/event.js'))
+app.use(userController)
+app.use(eventController)
+app.use(passport.initialize())
 app.listen(3001, () => console.log('Listening on port 3001 :)'))
