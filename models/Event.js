@@ -11,7 +11,7 @@ const Comment = new Schema({
   author: {
     type: Schema.Types.ObjectId,
     ref: 'User'
-  }
+  },
 })
 
 const Event = new Schema({
@@ -25,7 +25,8 @@ const Event = new Schema({
     type: Date,
     default: Date.now()
   },
-  comments: [Comment]
+  comments: [Comment],
+  public: Boolean
 })
 
 
