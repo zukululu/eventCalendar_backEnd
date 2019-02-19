@@ -1,10 +1,12 @@
 const express = require('express')
+const parser = require('body-parser')
 const app = express()
 const passport = require('./config/passport')()
 const userController = require('./controllers/users.js')
 const eventController = require('./controllers/event')
 
+app.use(parser.json())
+app.use(passport.initialize())
 app.use('/users', userController)
 app.use(eventController)
-app.use(passport.initialize())
 app.listen(3001, () => console.log('Listening on port 3001 :)'))
