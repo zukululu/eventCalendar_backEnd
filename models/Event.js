@@ -1,15 +1,6 @@
 const mongoose = require('../db/connection')
 const Schema = mongoose.Schema
 
-const Event = new Schema({
-  title: String,
-  date: String,
-  author: {
-    type: Schema.Types.ObjectId,
-    ref: 'User'
-  },
-  comments: [Comment]
-})
 
 const Comment = new Schema({
   content: String,
@@ -22,6 +13,21 @@ const Comment = new Schema({
     ref: 'User'
   }
 })
+
+const Event = new Schema({
+  title: String,
+  date: String,
+  author: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now()
+  },
+  comments: [Comment]
+})
+
 
 module.exports = {
   Event: mongoose.model('Event', Event),
