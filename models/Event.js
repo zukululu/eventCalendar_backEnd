@@ -29,7 +29,8 @@ const Event = new Schema({
   public: Boolean,
   attendees: Number,
   cover: Number,
-  description: String
+  description: String,
+  location: String
 })
 
 

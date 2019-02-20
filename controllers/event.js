@@ -33,7 +33,8 @@ router.post('/new', (req, res) => {
     location: req.body.location,
     description: req.body.description,
     cover: req.body.cover,
-    public: req.body.public
+    public: req.body.public,
+    attendees: req.body.attendees
   })
   .then( result => {
     User.findOne({ _id: result.author })
@@ -68,8 +69,11 @@ router.post('/:id', (req, res) => {
 router.put('/:id', (req, res) => {
   //need to add update to event 
   //need to add increments to attendees
-  Event.findOneAndUpdate({ id: req.params._id}, { attendees: 1 })
-  console.log('help')
+  Event.findOneAndUpdate({ id: req.params._id})
+  .then( event => {
+    event.attendees = event.attendees + 1
+    console.log('help')
+  })
 })
 
 module.exports = router
