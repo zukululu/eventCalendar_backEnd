@@ -1,16 +1,10 @@
-const { Event } = require('../models/Event')
+const { Event, Comment } = require('../models/Event')
 const User = require('../models/User')
 
-User.create({
-  email: 'hi@google.com',
-  password: 'bye' })
-  .then( newUser => {
-    Event.create({
-      title: 'Make a sample'
-    }).then(newEvent => {
-      newUser.events.push(newEvent)
-      newUser.save()
+User.find({}).remove( () => {
+  Event.find({}).remove( () => {
+    Comment.find({}).remove( () => {
+      console.log('done')
     })
   })
-
-  console.log('done')
+})

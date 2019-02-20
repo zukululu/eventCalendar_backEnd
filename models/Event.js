@@ -27,7 +27,9 @@ const Event = new Schema({
   },
   comments: [Comment],
   public: Boolean,
-  attendees: Number
+  attendees: Number,
+  cover: Number,
+  description: String
 })
 
 

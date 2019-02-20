@@ -30,6 +30,9 @@ router.post('/new', (req, res) => {
     title: req.body.title,
     date: req.body.date,
     author: req.body.author,
+    location: req.body.location,
+    description: req.body.description,
+    cover: req.body.cover,
     public: req.body.public
   })
   .then( result => {
@@ -50,7 +53,8 @@ router.post('/:id', (req, res) => {
   Event.findOne({ id: req.params._id })
   .then( event => {
     Comment.create({
-      content: req.body.content
+      content: req.body.content,
+      author: req.body.author
     })
     .then( newComment => {
       event.comments.push(newComment)
