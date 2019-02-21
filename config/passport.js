@@ -14,9 +14,13 @@ const params = {
 }
 
 module.exports = function () {
+  console.log('init strategy')
   let strategy = new Strategy(params, (payload, callback) => {
+    console.log(params)
+    console.log(payload)
     let user = User.findById(payload.id) || null
     if (user) {
+      console.log('found user', user)
       return callback(null, { id: user.id })
     } else {
       return callback(new Error('User not found'), null)
@@ -27,9 +31,11 @@ module.exports = function () {
 
   return {
     initialize: function () {
+      console.log('initialize called')
       return passport.initialize()
     },
     authenticate: function () {
+      console.log('authenticate called')
       return passport.authenticate('jwt', { session: false })
     }
   }

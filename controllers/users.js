@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const jwt = require('jwt-simple')
-// const passport = require('../config/passport')
-const passport = require('passport')
+// const passport = require('../config/passport')()
+// const passport = require('passport')
 const config = require('../config/config')
 const mongoose = require('../models/User')
 const User = mongoose.model('User')
@@ -63,7 +63,8 @@ router.post('/login', (req, res) => {
           }
           var token = jwt.encode(payload, config.jwtSecret)
           res.json({
-            token: token
+            token: token,
+            id: user.id
           })
         } else {
           res.sendStatus(401)
