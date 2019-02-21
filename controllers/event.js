@@ -8,7 +8,6 @@ router.get('/', (req, res) => {
   .sort( { date: -1 } )
   .then(event => {
     res.json(event)
-    console.log('hello')
   })
 })
 
@@ -16,8 +15,6 @@ router.get('/:id', (req, res) => {
   Event.findOne({ id: req.params._id })
   .then( event => {
     res.json(event)
-    console.log('hello')
-    console.log(event)
   })
 })
 
@@ -72,8 +69,6 @@ router.post('/:id', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-  //need to add update to event 
-  //need to add increments to attendees
   Event.findOneAndUpdate({ id: req.params._id}, 
     { $set: {
       title: req.body.title,
