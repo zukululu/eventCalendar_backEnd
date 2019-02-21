@@ -30,6 +30,7 @@ router.delete('/:id', (req, res) => {
 })
 
 router.post('/new', (req, res) => {
+  console.log(req.body)
   Event.create({
     title: req.body.title,
     date: req.body.date,
