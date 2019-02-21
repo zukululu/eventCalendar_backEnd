@@ -5,10 +5,10 @@ const router = express.Router()
 
 router.get('/', (req, res) => {
   Event.find({})
+  .sort( { date: -1 } )
   .then(event => {
     res.json(event)
     console.log('hello')
-    console.log(event)
   })
 })
 
