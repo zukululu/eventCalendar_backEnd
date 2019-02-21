@@ -7,6 +7,8 @@ router.get('/', (req, res) => {
   Event.find({})
   .then(event => {
     res.json(event)
+    console.log('hello')
+    console.log(event)
   })
 })
 
@@ -14,6 +16,8 @@ router.get('/:id', (req, res) => {
   Event.findOne({ id: req.params._id })
   .then( event => {
     res.json(event)
+    console.log('hello')
+    console.log(event)
   })
 })
 
