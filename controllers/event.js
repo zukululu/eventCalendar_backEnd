@@ -69,11 +69,16 @@ router.post('/:id', (req, res) => {
 router.put('/:id', (req, res) => {
   //need to add update to event 
   //need to add increments to attendees
-  Event.findOneAndUpdate({ id: req.params._id})
-  .then( event => {
-    event.attendees = event.attendees + 1
-    console.log('help')
-  })
+  Event.findOneAndUpdate({ id: req.params._id}, 
+    { $set: {
+      title: req.body.title,
+      date: req.body.date,
+      description: req.body.description,
+      location: req.body.location
+    }})
+    .then( event => {
+      res.redirect(`/${req.params._id}`)
+    })
 })
 
 module.exports = router
