@@ -6,7 +6,7 @@ const userController = require('./controllers/users.js')
 const eventController = require('./controllers/event')
 const cors = require('cors')
 
-let port = process.env.NODE_ENV || 3001
+let port = process.env.PORT || 3001
 
 app.use(cors())
 app.use(parser.json())
