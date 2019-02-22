@@ -72,7 +72,7 @@ router.put('/:id', (req, res) => {
   Event.findOneAndUpdate({ id: req.params._id}, 
     { $set: {
       title: req.body.title,
-      date: req.body.date,
+      date: req.body.date,``
       description: req.body.description,
       location: req.body.location
     }})
