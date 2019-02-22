@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 if (process.env.NODE_ENV == "production") {
-  mongoose.connect('http://localhost:3000')
+  mongoose.connect('https://dashboard.heroku.com/apps/lettuce-meat-api')
 } else {
   mongoose.connect("mongodb://localhost/events");
 }
