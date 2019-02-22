@@ -8,3 +8,7 @@ User.find({}).remove( () => {
     })
   })
 })
+
+Event.create({
+  "title": "hello"
+})
