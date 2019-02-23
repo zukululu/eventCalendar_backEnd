@@ -19,10 +19,10 @@ router.get('/:id', (req, res) => {
 })
 
 router.delete('/:id', (req, res) => {
-  console.log(req.params.id)
+  console.log(req.params._id)
   Event.findOneAndRemove({ id: req.params._id})
   .then( () => {
-    res.send('hello')
+    // res.send('hello')
   })
 })
 
@@ -77,7 +77,7 @@ router.put('/:id', (req, res) => {
       location: req.body.location
     }})
     .then( event => {
-      res.redirect(`/${req.params._id}`)
+      // res.redirect(`/${req.params._id}`)
     })
 })
 
