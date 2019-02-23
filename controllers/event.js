@@ -20,6 +20,7 @@ router.get('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   console.log(req.params._id)
+  console.log('crap')
   Event.findOneAndRemove({ id: req.params._id})
   .then( () => {
     res.send('hello')
