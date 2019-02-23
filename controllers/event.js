@@ -22,7 +22,7 @@ router.delete('/:id', (req, res) => {
   console.log(req.params._id)
   Event.findOneAndRemove({ id: req.params._id})
   .then( () => {
-    // res.send('hello')
+    res.send('hello')
   })
 })
 
