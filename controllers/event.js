@@ -19,8 +19,8 @@ router.get('/:id', (req, res) => {
 })
 
 router.delete('/:id', (req, res) => {
-  console.log('hello')
-  Event.findOneAndRemove({ id: req.params.id})
+  console.log(req.params.id)
+  Event.findOneAndRemove({ id: req.params._id})
   .then( () => {
     res.send('hello')
   })
