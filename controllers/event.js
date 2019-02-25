@@ -78,7 +78,7 @@ router.put('/edit/:id', (req, res) => {
       location: req.body.location
     }})
     .then( event => {
-      // res.redirect(`/${req.params._id}`)
+      res.send('hello')
     })
 })
 
