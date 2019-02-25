@@ -69,7 +69,7 @@ router.post('/:id', (req, res) => {
   })
 })
 
-router.put('/:id', (req, res) => {
+router.put('/edit/:id', (req, res) => {
   Event.findOneAndUpdate({ id: req.params._id}, 
     { $set: {
       title: req.body.title,
